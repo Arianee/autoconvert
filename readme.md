@@ -11,3 +11,5 @@ isBoolean
 
 ```
  CastBoolean, CastToStringifiedJSON, CastInteger, CastString
+
+This library is using Symbol to make pseudo private property.

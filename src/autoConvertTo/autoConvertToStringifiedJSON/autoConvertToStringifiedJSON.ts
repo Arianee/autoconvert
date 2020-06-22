@@ -10,13 +10,14 @@ function transformToString (value) {
 }
 
 export function AutoConvertToStringifiedJSON (target, property, descriptor?):any {
-  let val;
+  const KEY = Symbol('key');
+
   return {
     set: function (value) {
-      val = transformToString(value);
+      this[KEY] = transformToString(value);
     },
     get: function () {
-      return val;
+      return this[KEY];
     },
     enumerable: true,
     configurable: true

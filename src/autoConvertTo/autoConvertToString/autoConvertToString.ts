@@ -7,13 +7,14 @@ function transformToString (value) {
 }
 
 export function AutoConvertoString (target, property, descriptor?):any {
-  let val;
+  const KEY = Symbol('key');
+
   return {
     set: function (value) {
-      val = transformToString(value);
+      this[KEY] = transformToString(value);
     },
     get: function () {
-      return val;
+      return this[KEY];
     },
     enumerable: true,
     configurable: true

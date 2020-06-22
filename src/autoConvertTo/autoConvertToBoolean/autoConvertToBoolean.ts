@@ -1,22 +1,23 @@
-export function AutoConvertToBoolean (target, property, descriptor?):any {
-  let val;
+export const AutoConvertToBoolean = () => (target, property, descriptor?): any => {
+  const KEY = Symbol('key');
+
   return {
     set: function (value) {
       const isTrue = value.toString() === 'true';
       const isFalse = value.toString() === 'false';
 
       if (isTrue) {
-        val = true;
+        this[KEY] = true;
       } else if (isFalse) {
-        val = false;
+        this[KEY] = false;
       } else {
         throw new Error('cannot set value as boolean');
       }
     },
     get: function () {
-      return val;
+      return this[KEY];
     },
     enumerable: true,
     configurable: true
   };
-}
+};
