@@ -12,6 +12,7 @@ describe('Boolean', () => {
     expect(typeof d.shouldBeABoolean).toBe('boolean');
     expect(d.shouldBeABoolean).toBe(true);
   });
+
   test('boolean false string should return boolean', () => {
     class MyClassBoolean {
       @AutoConvertToBoolean

@@ -7,12 +7,13 @@ function transformToString (value) {
 }
 
 export function AutoConvertoString (target, property, descriptor?):any {
+  let val;
   return {
     set: function (value) {
-      this['__' + property] = transformToString(value);
+      val = transformToString(value);
     },
     get: function () {
-      return this['__' + property];
+      return val;
     },
     enumerable: true,
     configurable: true
