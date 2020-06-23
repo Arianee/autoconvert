@@ -2,7 +2,7 @@ import { AutoConvertToStringifiedJSON } from './autoConvertToStringifiedJSON';
 
 describe('string', () => {
   class MyClassStringifiedJSON {
-    @AutoConvertToStringifiedJSON
+    @AutoConvertToStringifiedJSON()
         shouldBeAString: any;
   }
   let theClass:MyClassStringifiedJSON;

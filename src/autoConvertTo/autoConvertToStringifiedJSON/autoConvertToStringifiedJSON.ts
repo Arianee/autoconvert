@@ -9,7 +9,7 @@ function transformToString (value) {
   }
 }
 
-export function AutoConvertToStringifiedJSON (target, property, descriptor?):any {
+export const AutoConvertToStringifiedJSON = () => (target, property, descriptor?):any => {
   const KEY = Symbol('key');
 
   return {
@@ -22,4 +22,4 @@ export function AutoConvertToStringifiedJSON (target, property, descriptor?):any
     enumerable: true,
     configurable: true
   };
-}
+};
