@@ -1,3 +1,5 @@
+import { modifyToJSONMethod } from '../modifyToJSONMethod/modifyToJSONMethod';
+
 function transformToString (value) {
   if (typeof value === 'object') {
     return JSON.stringify(value);
@@ -14,9 +16,12 @@ export const AutoConvertToStringifiedJSON = () => (target, property, descriptor?
 
   return {
     set: function (value) {
+      modifyToJSONMethod(this);
       this[KEY] = transformToString(value);
     },
     get: function () {
+      modifyToJSONMethod(this);
+
       return this[KEY];
     },
     enumerable: true,

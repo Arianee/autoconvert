@@ -1,5 +1,5 @@
 import { AutoConvertToBoolean } from './autoConvertToBoolean';
-import { AutoConvertToInteger } from '../..';
+
 describe('Boolean', () => {
   test('boolean true string should return boolean', () => {
     class MyClassBoolean {
@@ -14,7 +14,7 @@ describe('Boolean', () => {
     expect(d.shouldBeABoolean).toBe(true);
   });
 
-  test('boolean false string should return boolean', () => {
+  test('DEV boolean false string should return boolean', () => {
     class MyClassBoolean {
       @AutoConvertToBoolean()
       shouldBeABoolean: any;
@@ -26,6 +26,7 @@ describe('Boolean', () => {
     expect(typeof d.shouldBeABoolean).toBe('boolean');
     expect(d.shouldBeABoolean).toBe(false);
   });
+
   test('boolean true should return boolean', () => {
     class MyClassBoolean {
       @AutoConvertToBoolean()
